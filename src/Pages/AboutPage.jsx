@@ -1,6 +1,6 @@
 import React from 'react'
-import OurStory from '../Components/OurStory'
-import Values from '../Components/Values'
+import OurStory from '../components/OurStory'
+import Values from '../components/Values'
 import Contactus from '../components/Contactus'
 
 const AboutPage = () => {
