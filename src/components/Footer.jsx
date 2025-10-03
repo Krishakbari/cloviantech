@@ -23,9 +23,9 @@ const Footer = () => {
             Clovian Technology where you get all the solutions for you problems.
           </p>
           <div className="flex space-x-4 text-gray-600 text-lg">
-            <a href="#" onClick={scrollToTop}>
+            {/* <a href="#" onClick={scrollToTop}>
               <FaFacebookF />
-            </a>
+            </a> */}
             <a href="https://www.linkedin.com/in/clovian-tech-solutions-276390388/" onClick={scrollToTop}>
               <FaLinkedinIn />
             </a>
