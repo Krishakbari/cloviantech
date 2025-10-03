@@ -49,15 +49,15 @@ import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 const Counter = ({ start, end }) => {
-  const { ref, inView } = useInView({ triggerOnce: false }); // Detect when in viewport
+  const { ref, inView } = useInView({ triggerOnce: false });
   const [count, setCount] = useState(start);
 
   useEffect(() => {
     if (inView) {
       let current = start;
-      setCount(start); // Reset count when re-entering
+      setCount(start);
 
-      const increment = Math.ceil((end - start) / 50); // Adjust speed
+      const increment = Math.ceil((end - start) / 50);
       const interval = setInterval(() => {
         current += increment;
         if (current >= end) {
@@ -73,7 +73,7 @@ const Counter = ({ start, end }) => {
   }, [inView, start, end]);
 
   return (
-    <span ref={ref} className="md:text-5xl text-[20px] font-bold">
+    <span ref={ref} className="md:text-5xl text-2xl font-bold">
       {count}+
     </span>
   );
@@ -81,32 +81,32 @@ const Counter = ({ start, end }) => {
 
 export default function HomeMain2() {
   return (
-    <div className=" text-black  font-[Nunito] ml-[5%] mr-[5%]">
-      <div className="container  flex justify-between text-center">
+    <div className="text-black font-[Nunito] px-6 md:px-20 ">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {/* Projects */}
-        <div className="mt-15">
+        <div>
           <Counter start={0} end={200} />
-          <p className="md:text-lg " >Projects Complete</p>
+          <p className="text-sm md:text-lg mt-2">Projects Complete</p>
         </div>
 
         {/* Happy Clients */}
-        <div className="mt-15">
+        <div>
           <Counter start={0} end={100} />
-          <p className="md:text-lg">Happy Clients</p>
+          <p className="text-sm md:text-lg mt-2">Happy Clients</p>
         </div>
 
         {/* Years Experience */}
-        <div className="mt-15">
+        <div>
           <Counter start={0} end={10} />
-          <p className="md:text-lg">Years Experience</p>
+          <p className="text-sm md:text-lg mt-2">Years Experience</p>
         </div>
 
         {/* Awards Won */}
-        <div className="mt-15">
+        <div>
           <Counter start={0} end={15} />
-          <p className="md:text-lg">Awards Won</p>
+          <p className="text-sm md:text-lg mt-2">Awards Won</p>
         </div>
-      </div><br /><br /><br />
+      </div>
     </div>
   );
 }

@@ -1,13 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HomeMain1 = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="flex flex-col items-center justify-center text-center py-8 sm:px-6 sm:py-18 md:py-36 font-inter ">
       {/* Heading */}
-      <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900  leading-snug md:leading-[1.2] max-w-4xl">
+      <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-snug md:leading-[1.2] max-w-4xl">
         Revolutionizing the Future with
         <br className="hidden sm:block" />
-        <span className="block sm:mt-8 ">Cutting-Edge Technology</span>
+        <span className="block sm:mt-8">Cutting-Edge Technology</span>
       </h1>
 
       {/* Subtext */}
@@ -17,8 +20,10 @@ const HomeMain1 = () => {
 
       {/* Buttons */}
       <div className="mt-8 flex gap-4 flex-wrap justify-center">
-
-        <button className="px-6 py-2 bg-[#1c3446] text-white rounded-full font-medium hover:bg-[#152a37] transition">
+        <button
+          className="px-6 py-2 bg-[#1c3446] text-white rounded-full font-medium hover:bg-[#152a37] transition"
+          onClick={() => navigate("/contact")}
+        >
           Contact Us
         </button>
       </div>
