@@ -1,7 +1,9 @@
 import React from 'react'; 
 import RightImg from '../assets/Right.png';
+import { useNavigate } from 'react-router-dom';
 
 const HomeContact = () => {
+  const navigate=useNavigate()
   return (
     <section className="bg-gray-50 sm:py-8 pb-8 px-6 sm:px-10 md:px-20 font-manrope">
       <div className="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col md:flex-row items-stretch">
@@ -30,7 +32,7 @@ const HomeContact = () => {
 
           {/* Bottom - Buttons */}
           <div className="flex flex-wrap gap-4 mt-6">
-            <button className="bg-blue-900 text-white px-6 py-2 rounded-full hover:bg-blue-800 transition">
+            <button className="bg-[#1c3446] text-white px-6 py-2 rounded-full hover:bg-blue-800 transition cursor-pointer" onClick={()=>navigate("/contact")}>
               Contact Us
             </button>
           </div>

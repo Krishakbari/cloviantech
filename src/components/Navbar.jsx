@@ -1,13 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const Navigate = useNavigate()
+  const navigate = useNavigate();
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -21,11 +20,9 @@ const Navbar = () => {
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
-  // Close menu after clicking a link
   const handleLinkClick = () => {
     setIsOpen(false);
   };
@@ -33,7 +30,6 @@ const Navbar = () => {
   return (
     <div className="bg-gray-50">
       <nav className="mx-auto max-w-7xl px-4 py-4 font-manrope">
-        {/* Top navbar */}
         <div className="bg-gray-200 px-6 py-3 rounded-full shadow-md flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
@@ -41,26 +37,45 @@ const Navbar = () => {
             <img
               src={logo}
               alt="mobile logo"
-              className="h-8 w-auto md:hidden"
-                onClick={()=>Navigate("/")}
+              className="h-8 w-auto md:hidden cursor-pointer"
+              onClick={() => navigate("/")}
             />
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex gap-12 text-base font-medium text-gray-800 text-lg">
-            <Link to="/" className="font-bold text-gray-900">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/service">Services</Link>
-            <Link to="/blogs">Blogs</Link>
+          <div className="hidden md:flex gap-12 text-lg font-medium text-gray-800">
+            {[
+              { to: "/", label: "Home" },
+              { to: "/about", label: "About" },
+              { to: "/service", label: "Services" },
+              { to: "/blogs", label: "Blogs" },
+            ].map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `relative transition-colors duration-200 
+                  ${isActive ? "text-gray-900 font-bold" : "text-gray-700"} 
+                  group`
+                }
+              >
+                {link.label}
+                {/* underline animation */}
+                <span
+                  className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gray-900 
+                             transition-all duration-300 group-hover:w-full"
+                ></span>
+              </NavLink>
+            ))}
           </div>
 
           {/* Desktop Contact Button */}
           <div className="hidden md:block">
-            <Link to="/contact">
+            <NavLink to="/contact">
               <button className="bg-[#1c3446] text-white px-5 py-2 rounded-full font-medium hover:bg-[#152a37] transition">
                 Contact Us
               </button>
-            </Link>
+            </NavLink>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -78,23 +93,23 @@ const Navbar = () => {
             ref={dropdownRef}
             className="bg-gray-200 mt-2 py-4 px-6 rounded-lg shadow-md flex flex-col gap-4 text-center md:hidden"
           >
-            <Link to="/" onClick={handleLinkClick} className="font-bold text-gray-900">
+            <NavLink to="/" onClick={handleLinkClick}>
               Home
-            </Link>
-            <Link to="/about" onClick={handleLinkClick}>
+            </NavLink>
+            <NavLink to="/about" onClick={handleLinkClick}>
               About
-            </Link>
-            <Link to="/service" onClick={handleLinkClick}>
+            </NavLink>
+            <NavLink to="/service" onClick={handleLinkClick}>
               Services
-            </Link>
-            <Link to="/blogs" onClick={handleLinkClick}>
+            </NavLink>
+            <NavLink to="/blogs" onClick={handleLinkClick}>
               Blogs
-            </Link>
-            <Link to="/contact" onClick={handleLinkClick}>
+            </NavLink>
+            <NavLink to="/contact" onClick={handleLinkClick}>
               <button className="bg-[#1c3446] text-white px-5 py-2 rounded-full font-medium hover:bg-[#152a37] transition">
                 Contact Us
               </button>
-            </Link>
+            </NavLink>
           </div>
         )}
       </nav>

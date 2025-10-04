@@ -1,9 +1,10 @@
 import React from 'react';
 import LineImg from '../assets/Line.png';
-
+import { useNavigate } from 'react-router-dom';
 const HomeAbout = () => {
+  const navigate = useNavigate()
   return (
-    <section className="bg-gray-50 pt-0 sm:py-12 px-6 sm:px-10 md:px-20 text-center font-manrope">
+    <section className="bg-gray-50 pt-16 sm:py-12 px-6 sm:px-10 md:px-20 text-center font-manrope">
       {/* Small "About Us" Badge */}
       <p className="inline-block bg-gray-200 text-gray-600 text-sm py-1 px-3 rounded-full mb-4">
         About Us
@@ -46,7 +47,7 @@ const HomeAbout = () => {
           className="hidden md:block  ml-6"
         />
       </div>
-      <p className="inline-block bg-blue-800 text-white text-lg py-1 px-3 rounded-full my-10">
+      <p className="inline-block bg-[#1c3446] text-white text-lg py-1 px-3 rounded-full my-10 cursor-pointer" onClick={()=>navigate("/contact")}>
         Contact Us
       </p>
     </section>

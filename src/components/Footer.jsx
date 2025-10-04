@@ -45,7 +45,7 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="services" onClick={scrollToTop}>
+              <a href="service" onClick={scrollToTop}>
                 Services
               </a>
             </li>

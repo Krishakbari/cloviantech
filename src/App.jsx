@@ -8,6 +8,9 @@ import Contact from "./Pages/Contact";
 import BlogPage from "./components/BlogPage";
 import SingleBlog from "./components/SingleBlog";
 import AboutPage from "./Pages/AboutPage";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import TermsAndConditions from "./Pages/TermsAndConditions";
+import Legal from "./Pages/Legal";
 
 function App() {
   return (
@@ -18,8 +21,13 @@ function App() {
         <Route path='/service' element={<Service />} />
         <Route path='/about' element={<AboutPage />} />
         <Route path='/contact' element={<Contact />} />
-         <Route path="/blogs" element={<BlogPage />} />
-          <Route path="/blogs/:id" element={<SingleBlog />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/blogs/:id" element={<SingleBlog />} />
+
+
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/legal" element={<Legal />} />
       </Routes>
       <Footer />
     </>
