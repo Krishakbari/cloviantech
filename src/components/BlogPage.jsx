@@ -3,6 +3,7 @@ import BlogCard from "./BlogCard";
 import FeaturedCard from "./FeaturedCard";
 import { blogs } from "../data/blogData";
 import Contactus from "./Contactus";
+import Blog1 from "../components/Blog1";
 
 const BlogPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -30,7 +31,8 @@ const BlogPage = () => {
   };
 
   return (
-    <>
+    <div className="bg-gray-50">
+    <Blog1/>
     <div className="bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 container mx-auto">
       {/* Header */}
       <div className="text-center mb-12">
@@ -78,7 +80,7 @@ const BlogPage = () => {
       </div>
     </div>
     <Contactus/>
-    </>
+    </div>
   );
 };
 

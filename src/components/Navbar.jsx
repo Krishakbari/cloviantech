@@ -32,13 +32,12 @@ const Navbar = () => {
       <nav className="mx-auto max-w-7xl px-4 py-4 font-manrope">
         <div className="bg-gray-200 px-6 py-3 rounded-full shadow-md flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")} >
             <img src={logo} alt="logo" className="h-10 w-auto hidden md:block" />
             <img
               src={logo}
               alt="mobile logo"
               className="h-8 w-auto md:hidden cursor-pointer"
-              onClick={() => navigate("/")}
             />
           </div>
 

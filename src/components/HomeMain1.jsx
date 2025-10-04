@@ -5,17 +5,17 @@ const HomeMain1 = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="flex flex-col items-center justify-center text-center py-8 sm:px-6 sm:py-18 md:py-36 font-inter ">
+    <section className="flex flex-col items-center justify-center text-center py-8 sm:px-6 sm:py-18 md:py-36 font-inter">
       {/* Heading */}
-      <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-snug md:leading-[1.2] max-w-4xl">
-        Revolutionizing the Future with
+      <h1 className="text-xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-snug md:leading-[1.2] max-w-4xl">
+        Empowering Businesses with
         <br className="hidden sm:block" />
-        <span className="block sm:mt-8">Cutting-Edge Technology</span>
+        <span className="block sm:mt-8">Innovative Tech Solutions</span>
       </h1>
 
       {/* Subtext */}
       <p className="mt-4 text-sm sm:text-base md:text-lg text-gray-600">
-        Empowering Innovation for a Digital Tomorrow
+        At Clovian Tech, we blend creativity and technology to drive digital transformation and build smarter, future-ready solutions.
       </p>
 
       {/* Buttons */}
