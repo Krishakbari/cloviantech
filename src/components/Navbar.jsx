@@ -23,16 +23,17 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen]);
 
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
+  const handleLinkClick = () => setIsOpen(false);
 
   return (
-    <div className="bg-gray-50">
-      <nav className="mx-auto max-w-7xl px-4 py-4 font-manrope">
+    <div className="bg-gray-50 relative z-50">
+      <nav className="mx-auto max-w-7xl px-4 py-4 font-manrope relative">
         <div className="bg-gray-200 px-6 py-3 rounded-full shadow-md flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")} >
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => navigate("/")}
+          >
             <img src={logo} alt="logo" className="h-10 w-auto hidden md:block" />
             <img
               src={logo}
@@ -59,7 +60,6 @@ const Navbar = () => {
                 }
               >
                 {link.label}
-                {/* underline animation */}
                 <span
                   className="absolute left-0 -bottom-1 h-[2px] w-0 bg-gray-900 
                              transition-all duration-300 group-hover:w-full"
@@ -86,12 +86,15 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Dropdown */}
-        {isOpen && (
-          <div
-            ref={dropdownRef}
-            className="bg-gray-200 mt-2 py-4 px-6 rounded-lg shadow-md flex flex-col gap-4 text-center md:hidden"
-          >
+        {/* Mobile Shutter Dropdown */}
+        <div
+          ref={dropdownRef}
+          className={`absolute top-full left-1/2 -translate-x-1/2 w-[90%] bg-gray-200 shadow-lg rounded-2xl overflow-hidden transform transition-all duration-500 ease-in-out md:hidden ${
+            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+          style={{ zIndex: 40 }}
+        >
+          <div className="py-5 px-6 flex flex-col gap-4 text-center">
             <NavLink to="/" onClick={handleLinkClick}>
               Home
             </NavLink>
@@ -110,7 +113,7 @@ const Navbar = () => {
               </button>
             </NavLink>
           </div>
-        )}
+        </div>
       </nav>
     </div>
   );
